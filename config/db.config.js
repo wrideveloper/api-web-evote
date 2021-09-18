@@ -1,0 +1,16 @@
+const mysql = require('mysql');
+
+// create mysql connection
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'e-vote'
+});
+
+connection.connect(function(error) {
+    if (error) throw error;
+    console.log('Successfully connected to the database.');
+})
+
+module.exports = connection;
