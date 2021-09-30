@@ -7,9 +7,9 @@ const voteController = require('../controllers/vote.controller');
 router.get('/:id',voteController.getVoteByIDUser);
 
 // get user hasVote
-router.get('/numvote/:id',voteController.getNumVote);
+router.get('/:id/numvote',voteController.getNumVote);
 
 // get sum of vote per candidate by id calon
-router.get('/sumvote/:id', voteController.getSumVoteCandidate);
+router.get('/:idcalon/sumvote', voteController.getSumVoteCandidate);
 
 module.exports = router;

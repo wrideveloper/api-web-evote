@@ -20,7 +20,7 @@ exports.getNumVote = (req, res)=>{
 
 // get sum of vote per candidate by id calon
 exports.getSumVoteCandidate = (req, res)=>{
-    VoteModel.getSumVoteCandidate(req.params.id, (err, sumVote)=>{
+    VoteModel.getSumVoteCandidate(req.params.idcalon, (err, sumVote)=>{
         if(err)
         res.send(err);
         res.send(sumVote);
