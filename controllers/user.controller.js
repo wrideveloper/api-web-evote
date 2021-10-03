@@ -45,15 +45,15 @@ exports.createData = (req, res) => {
         });
     } else {
         User.createData(userNew, (err, user) => {
-            if (err) {
+            if (err)
                 res.send(err);
-            } else {
-                res.json({
-                    success: true,
-                    message: "Success to add data",
-                    data: user.insertId
-                });
-            }
+
+            res.json({
+                success: true,
+                message: "Success to add data",
+                data: user.insertId
+            });
+
         });
     }
 }

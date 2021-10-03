@@ -5,21 +5,21 @@ let User = function(user) {
     this.id = user.id;
     this.nama = user.nama;
     this.nim = user.nim;
-    md5(this.password) = md5(user.password);
+    this.password = md5(user.password);
     this.role = user.role;
 }
 
 // Create Data
 User.createData = (userNew, result) => {
-    sql.query("INSERT INTO user SET ?", [userNew], (err, res) => {
+    sql.query("INSERT INTO user SET ? ", [userNew], (err, res) => {
         if (err) {
             console.log("Failed to create data");
             result(null, err);
         } else {
             console.log("Successfully to added data");
-            result(null, err);
+            result(null, res);
         }
-    })
+    });
 }
 
 // Update Data By ID
@@ -42,7 +42,7 @@ User.deleteDataByID = (id, result) => {
             console.log("Data is not available");
             result(null, err);
         } else {
-            console.log("Deleted", user);
+            console.log("Deleted");
             result(null, res);
         }
     });
