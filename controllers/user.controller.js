@@ -47,10 +47,9 @@ exports.createData = (req, res) => {
         User.createData(userNew, (err, user) => {
             if (err)
                 res.send(err);
-
             res.json({
                 success: true,
-                message: "Success to add data",
+                message: "Success",
                 data: user.insertId
             });
 

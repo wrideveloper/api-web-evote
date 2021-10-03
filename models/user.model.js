@@ -2,7 +2,7 @@ const sql = require('../config/db.config');
 const md5 = require('md5');
 
 let User = function(user) {
-    this.id = user.id;
+    this.id_user = user.id_user;
     this.nama = user.nama;
     this.nim = user.nim;
     this.password = md5(user.password);
@@ -11,9 +11,10 @@ let User = function(user) {
 
 // Create Data
 User.createData = (userNew, result) => {
-    sql.query("INSERT INTO user SET ? ", [userNew], (err, res) => {
+    // sql.query('INSERT INTO (nama, nim, password, role) user VALUES(?, ?, ?, ?)', [userNew.nama, userNew.nim, userNew.password, userNew.role], (err, res) => {
+    sql.query('INSERT INTO user set ?', [userNew], (err, res) => {
         if (err) {
-            console.log("Failed to create data");
+            console.error(err);
             result(null, err);
         } else {
             console.log("Successfully to added data");
@@ -51,7 +52,7 @@ User.deleteDataByID = (id, result) => {
 
 // Get Data by ID without password
 User.getDataByID = (id, result) => {
-    sql.query("SELECT id_user,nama,nim,role FROM user WHERE id_user=?", id, (err, res) => {
+    sql.query("SELECT * FROM user WHERE id_user=?", id, (err, res) => {
         if (err) {
             console.log("Data is not available");
             result(null, err);
@@ -64,7 +65,7 @@ User.getDataByID = (id, result) => {
 
 // Get All Data without password
 User.getAllData = (result) => {
-    sql.query("SELECT id_user,nama,nim,role FROM user", result, (err, user) => {
+    sql.query("SELECT * FROM user", result, (err, user) => {
         if (err) {
             console.log("Data is not available");
             result(null, err);
