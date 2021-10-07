@@ -4,3 +4,4 @@ Untuk berpartisipasi dalam project ini, harap lakukan beberapa langkah di bawah 
 2. Kemudian, lakukan "git clone linkrepoyangdicopas" untuk mengunduh project ini.
 3. Lakukan "npm install" untuk mengunduh package yang dibutuhkan untuk project API e-vote ini.
 4. Project sudah bisa dimodifikasi.
+5. Jangan lupa lakukan commit dan pull request ke repository WRI.

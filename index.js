@@ -1,16 +1,25 @@
 const express = require('express');
+const bodyParser = require('body-parser');
+
 const app = express();
-
-// server port
 const port = process.env.PORT || 3000;
+const md5 = require('md5');
+const conn = require('./config/db.config');
 
-// import vote routes
-const voteRoutes = require('./routes/vote.route');
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(express.json());
+app.use(bodyParser.json());
 
-// create vote routes
-app.use('/vote', voteRoutes);
+const voteRouter = require('./src/routes/vote.route');
+const userRoute = require('./routes/user.route');
 
-// listen to the port
-app.listen(port, function() {
-    console.log(`server listening on port ${port}`);
-})
+app.use('/api/vote', voteRouter);
+app.use('/user', userRoute);
+
+app.get('/', (req, res) => {
+    res.send('It is Working');
+});
+
+app.listen(port, ()=>{
+    console.log(`Express is running at port ${port}`);
+});
