@@ -1,7 +1,7 @@
 {
   "name": "api-web-evote",
   "version": "1.0.0",
-  "description": "",
+  "description": "Untuk berpartisipasi dalam project ini, harap lakukan beberapa langkah di bawah ini:\r 1. Fork project api-web-evote ini ke akun kalian.\r 2. Kemudian, lakukan \"git clone linkrepoyangdicopas\" untuk mengunduh project ini.\r 3. Lakukan \"npm install\" untuk mengunduh package yang dibutuhkan untuk project API e-vote ini.\r 4. Project sudah bisa dimodifikasi.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -24,6 +24,8 @@
     "md5": "^2.3.0",
     "multer": "^1.4.3",
     "mysql": "^2.18.1",
-    "nodemon": "^2.0.12"
-  }
+    "nodemon": "^2.0.13",
+    "session": "^0.1.0"
+  },
+  "devDependencies": {}
 }
