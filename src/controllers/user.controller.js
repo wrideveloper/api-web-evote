@@ -1,4 +1,4 @@
-const User = require('../models/user.model');
+const User = require('../../models/user.model');
 const md5 = require('md5');
 
 // Get All Data
@@ -15,17 +15,6 @@ exports.getAllData = (req, res) => {
 // Get Data by ID
 exports.getDataByID = (req, res) => {
     User.getDataByID(req.params.id, (err, user) => {
-        if (err) {
-            res.send(err);
-        } else {
-            res.send(user);
-        }
-    });
-}
-
-// Delete Data by ID
-exports.deleteDataByID = (req, res) => {
-    User.deleteDataByID(req.params.id, (err, user) => {
         if (err) {
             res.send(err);
         } else {
@@ -78,4 +67,15 @@ exports.updateData = (req, res) => {
             }
         });
     }
+}
+
+// Delete Data by ID
+exports.deleteDataByID = (req, res) => {
+    User.deleteDataByID(req.params.id, (err, user) => {
+        if (err) {
+            res.send(err);
+        } else {
+            res.send(user);
+        }
+    });
 }

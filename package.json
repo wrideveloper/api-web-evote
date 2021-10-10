@@ -4,7 +4,8 @@
   "description": "Untuk berpartisipasi dalam project ini, harap lakukan beberapa langkah di bawah ini:\r 1. Fork project api-web-evote ini ke akun kalian.\r 2. Kemudian, lakukan \"git clone linkrepoyangdicopas\" untuk mengunduh project ini.\r 3. Lakukan \"npm install\" untuk mengunduh package yang dibutuhkan untuk project API e-vote ini.\r 4. Project sudah bisa dimodifikasi.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
   },
   "repository": {
     "type": "git",

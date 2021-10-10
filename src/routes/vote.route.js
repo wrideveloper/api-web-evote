@@ -1,10 +1,15 @@
 const express = require('express');
 const router = express.Router();
 
-const voteController = require('../controllers/vote.controller.js');
+const voteController = require('../controllers/vote.controller');
 
-router.get('/', voteController.getAllVoteList);
+// get vote by ID
+router.get('/:id', voteController.getVoteByIDUser);
 
-router.post('/', voteController. createVote);
+// get user hasVote
+router.get('/:id/numvote', voteController.getNumVote);
+
+// get sum of vote per candidate by id calon
+router.get('/:idcalon/sumvote', voteController.getSumVoteCandidate);
 
 module.exports = router;

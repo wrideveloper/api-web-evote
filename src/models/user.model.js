@@ -1,4 +1,4 @@
-const sql = require('../config/db.config');
+const sql = require('../../config/db.config');
 const md5 = require('md5');
 
 let User = function(user) {
