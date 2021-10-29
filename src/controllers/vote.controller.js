@@ -20,11 +20,12 @@ exports.getVoteByIDUser = (req, res) => {
 }
 
 // get num of vote of user by ID
-exports.getNumVote = (req, res) => {
-    VoteModel.getNumVote(req.params.id, (err, alreadyVote) => {
+exports.getTotalVote = (req, res) => {
+    VoteModel.getTotalVote((err, vote) => {
         if (err)
             res.send(err);
-        res.send(alreadyVote);
+        else
+            res.send(vote);        
     })
 }
 

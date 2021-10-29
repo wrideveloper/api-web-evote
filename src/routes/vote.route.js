@@ -3,13 +3,10 @@ const router = express.Router();
 
 const voteController = require('../controllers/vote.controller');
 
-// get vote by ID
+router.get('/', voteController.getAllVoteList);
 router.get('/:id', voteController.getVoteByIDUser);
-
-// get user hasVote
-router.get('/:id/numvote', voteController.getNumVote);
-
-// get sum of vote per candidate by id calon
+router.post('/', voteController. createVote);
+router.get('/total', voteController.getTotalVote);
 router.get('/:idcalon/sumvote', voteController.getSumVoteCandidate);
 
 module.exports = router;

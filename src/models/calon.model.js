@@ -1,4 +1,4 @@
-var connection = require('../../config/db.config');
+var sql = require('../../config/db.config');
 
 var Calon = function(calon){
     this.id_calon = calon.id_calon;
@@ -11,7 +11,7 @@ var Calon = function(calon){
 
 //get all calon
 Calon.getAllCalon = (result) =>{
-    connection.query('SELECT * FROM calon', (err, res)=>{
+    sql.query('SELECT * FROM calon', (err, res)=>{
         if(err){
             console.log('Error while fetching calon', err);
             result(null,err);
@@ -23,7 +23,7 @@ Calon.getAllCalon = (result) =>{
 }
 //get Calon by ID
 Calon.getCalonByID = (id, result)=>{
-    connection.query('SELECT * FROM calon WHERE id_calon=?',[id], (err, res)=>{
+    sql.query('SELECT * FROM calon WHERE id_calon=?',[id], (err, res)=>{
         if(err){
             console.log('Eror ketika fetch calon by id', err);
             result(null, err);
@@ -34,7 +34,7 @@ Calon.getCalonByID = (id, result)=>{
 }
 //create new Calon
 Calon.createCalon = (calonReqData, result)=>{
-    connection.query('INSERT INTO calon SET ? ', calonReqData, (err, res)=>{
+    sql.query('INSERT INTO calon SET ? ', calonReqData, (err, res)=>{
         if(err){
             console.log('Eror ketika memasukkan data calon');
             result(null, err);
@@ -46,7 +46,7 @@ Calon.createCalon = (calonReqData, result)=>{
 }
 //update calon
 Calon.updateCalon = (id, calonReqData, result)=>{
-    connection.query("UPDATE calon SET nama=?,kelas=?,visi=?,misi=?,foto=? WHERE id_calon=?",
+    sql.query("UPDATE calon SET nama=?,kelas=?,visi=?,misi=?,foto=? WHERE id_calon=?",
     [calonReqData.nama, calonReqData.kelas, calonReqData.visi, 
     calonReqData.misi, calonReqData.foto, id],
     (err, res)=>{
@@ -61,7 +61,7 @@ Calon.updateCalon = (id, calonReqData, result)=>{
 }
 //delete calon
 Calon.deleteCalon = (id, result)=>{
-    connection.query('DELETE FROM calon WHERE id_calon=?',[id], (err, res)=>{
+    sql.query('DELETE FROM calon WHERE id_calon=?',[id], (err, res)=>{
         if(err){
             console.log('Error ketika hapus calon');
             result(null, err);
