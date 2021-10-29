@@ -22,8 +22,8 @@ Calon.getAllCalon = (result) =>{
     })
 }
 //get Calon by ID
-Calon.getCalonByID = (id_calon, result)=>{
-    connection.query('SELECT * FROM calon WHERE id_calon?', id_calon, (err, res)=>{
+Calon.getCalonByID = (id, result)=>{
+    connection.query('SELECT * FROM calon WHERE id_calon=?',[id], (err, res)=>{
         if(err){
             console.log('Eror ketika fetch calon by id', err);
             result(null, err);
@@ -45,10 +45,10 @@ Calon.createCalon = (calonReqData, result)=>{
     })
 }
 //update calon
-Calon.updateCalon = (id_calon, calonReqData, result)=>{
-    connection.query("UPDATE calon SET nama=?,kelas=?,visi=?,misi=?,foto=?",
+Calon.updateCalon = (id, calonReqData, result)=>{
+    connection.query("UPDATE calon SET nama=?,kelas=?,visi=?,misi=?,foto=? WHERE id_calon=?",
     [calonReqData.nama, calonReqData.kelas, calonReqData.visi, 
-    calonReqData.misi, calonReqData.foto, id_calon],
+    calonReqData.misi, calonReqData.foto, id],
     (err, res)=>{
         if(err){
             console.log('Eror ketika update calon');
@@ -60,8 +60,8 @@ Calon.updateCalon = (id_calon, calonReqData, result)=>{
     })
 }
 //delete calon
-Calon.deleteCalon = (id_calon, result)=>{
-    connection.query('DELETE FROM calon WHERE id_calon=?',[id_calon], (err, res)=>{
+Calon.deleteCalon = (id, result)=>{
+    connection.query('DELETE FROM calon WHERE id_calon=?',[id], (err, res)=>{
         if(err){
             console.log('Error ketika hapus calon');
             result(null, err);
