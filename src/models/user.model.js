@@ -76,4 +76,18 @@ User.getAllData = (result) => {
     });
 }
 
+// Login
+User.login = (nim, password, result) => {
+    sql.query("SELECT * FROM user WHERE nim = ? AND password = ?", [nim, password], (err, user) => {        
+        if (err) {
+            console.log("Data is not available");
+            result(null, err);
+        } else {
+            console.log("found user: ", user);
+            result(null, user);
+            return;
+        }      
+    });
+};
+
 module.exports = User;

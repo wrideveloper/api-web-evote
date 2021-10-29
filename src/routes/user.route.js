@@ -6,6 +6,7 @@ router.get('/', route.getAllData);
 router.get('/:id', route.getDataByID);
 router.delete('/:id', route.deleteDataByID);
 router.post('/', route.createData);
+router.post('/login', route.login);
 router.put('/:id', route.updateData);
 
 module.exports = router;

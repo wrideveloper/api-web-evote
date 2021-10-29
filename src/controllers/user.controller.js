@@ -78,3 +78,26 @@ exports.deleteDataByID = (req, res) => {
         }
     });
 }
+
+exports.login = (req, res) => {
+    if (!req.body) {
+        res.status(400).send({
+            message: "Content can not be empty!"
+        });
+    }
+
+    // Save User in the database
+    User.login(req.body.nim, md5(req.body.password), (err, data) => {
+        if (res.length > 0) {
+            req.session.loggedin = true;
+            req.session.nim = req.body.nim;
+        }
+
+        if (err)
+            res.status(500).send({
+                message:
+                    err.message || "You can't login"
+            });
+        else res.send(data);
+    });
+};
