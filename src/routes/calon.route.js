@@ -5,9 +5,9 @@ const Datastore = require('nedb');
 
 const database = new Datastore('');
 database.loadDatabase();
-database.insert({name: 'Zaed', id:1});
-database.insert({name: 'Zaaed', id:1});
-database.insert({name: 'Zawed', id:1});
+database.insert({ name: 'Zaed', id: 1 });
+database.insert({ name: 'Zaaed', id: 1 });
+database.insert({ name: 'Zawed', id: 1 });
 router.get("/", (req, res) => {
   res.json(calons);
 });

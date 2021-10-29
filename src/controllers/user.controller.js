@@ -1,4 +1,4 @@
-const User = require('../../models/user.model');
+const User = require('../models/user.model');
 const md5 = require('md5');
 
 // Get All Data
@@ -41,7 +41,6 @@ exports.createData = (req, res) => {
                 message: "Success",
                 data: user.insertId
             });
-
         });
     }
 }
@@ -62,7 +61,7 @@ exports.updateData = (req, res) => {
             } else {
                 res.json({
                     success: true,
-                    message: "Success to add data",
+                    message: "Success to edit data",
                 });
             }
         });

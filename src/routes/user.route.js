@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const route = require('../../controllers/user.controller');
+const route = require('../controllers/user.controller');
 
 router.get('/', route.getAllData);
 router.get('/:id', route.getDataByID);
