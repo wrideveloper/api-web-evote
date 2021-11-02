@@ -83,10 +83,30 @@
             <th>Method</th>
             <th>URL</th>        
             <tr>
-                <td>Mendapatkan daftar calon</td>
+                <td>Mendapatkan daftar semua vote</td>
                 <td>GET</td>
-                <td>/calon</td>
-            </tr>        
+                <td>/</td>
+            </tr>
+            <tr>
+                <td>Mendapatkan data vote user dengan id</td>
+                <td>GET</td>
+                <td>/:id</td>
+            </tr>
+            <tr>
+                <td>Membuat vote baru</td>
+                <td>POST</td>
+                <td>/</td>
+            </tr>
+            <tr>
+                <td>Mendapatkan jumlah semua vote</td>
+                <td>GET</td>
+                <td>/total</td>
+            </tr>
+            <tr>
+                <td>Mendapatkan jumlah vote tiap calon dengan id</td>
+                <td>GET</td>
+                <td>/:idcalon/sumvote</td>
+            </tr>
         </table>
     </div>    
 </body>
