@@ -29,7 +29,6 @@ exports.getTotalVote = (req, res) => {
     })
 }
 
-
 // create vote
 exports.createVote = (req, res) => {
     const ReqData = new VoteModel(req.body);
