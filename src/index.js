@@ -19,6 +19,8 @@ app.use(session({
     saveUninitialized: true
 }));
 
+app.use(express.static('public'))
+
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
@@ -31,7 +33,7 @@ app.use('/user', userRouter);
 app.use('/calon', calonRouter);
 
 app.get('/', (req, res) => {
-    res.send('Welcome to API Web E-Vote!');
+    res.sendFile(path.join(__dirname, '../index.html'));
 });
 
 app.listen(port, () => {
