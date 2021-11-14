@@ -6,6 +6,7 @@ let User = function(user) {
     this.nama = user.nama;
     this.nim = user.nim;
     this.password = md5(user.password);
+    this.miniclass = user.miniclass;
     this.role = user.role;
 }
 
@@ -25,7 +26,7 @@ User.createData = (userNew, result) => {
 
 // Update Data By ID
 User.updateData = (id, userNew, result) => {
-    sql.query("UPDATE user SET nama = ?, nim = ?, password = ?, role = ? WHERE id_user=?", [userNew.nama, userNew.nim, userNew.password, userNew.role, id], (err, res) => {
+    sql.query("UPDATE user SET nama = ?, nim = ?, password = ?, miniclass = ?, role = ? WHERE id_user=?", [userNew.nama, userNew.nim, userNew.password, userNew.miniclass, userNew.role, id], (err, res) => {
         if (err) {
             console.log("Failed to Update Data");
             result(null, err);
@@ -50,7 +51,7 @@ User.deleteDataByID = (id, result) => {
 }
 
 
-// Get Data by ID without password
+// Get Data by ID with password
 User.getDataByID = (id, result) => {
     sql.query("SELECT * FROM user WHERE id_user=?", id, (err, res) => {
         if (err) {
@@ -63,7 +64,7 @@ User.getDataByID = (id, result) => {
     })
 }
 
-// Get All Data without password
+// Get All Data with password
 User.getAllData = (result) => {
     sql.query("SELECT * FROM user", result, (err, user) => {
         if (err) {
@@ -78,7 +79,7 @@ User.getAllData = (result) => {
 
 // Login
 User.login = (nim, password, result) => {
-    sql.query("SELECT * FROM user WHERE nim = ? AND password = ?", [nim, password], (err, user) => {        
+    sql.query("SELECT * FROM user WHERE nim = ? AND password = ?", [nim, password], (err, user) => {
         if (err) {
             console.log("Data is not available");
             result(null, err);
@@ -86,7 +87,7 @@ User.login = (nim, password, result) => {
             console.log("found user: ", user);
             result(null, user);
             return;
-        }      
+        }
     });
 };
 

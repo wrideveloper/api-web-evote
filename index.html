@@ -13,17 +13,17 @@
         * {
             font-family: 'Roboto', sans-serif;
         }
-
+        
         body {
             padding: 0 20px;
         }
-
+        
         #guide {
             border: 1px solid black;
             padding: 10px 20px;
             margin: 20px 0;
         }
-
+        
         table,
         th,
         td {
@@ -31,7 +31,7 @@
             border: 1px solid black;
             border-collapse: collapse;
         }
-
+        
         #img-db-diagram {
             width: 100%;
         }
@@ -55,28 +55,43 @@
         </ul>
         <p><b>Diagram:</b></p>
         <img src="public/img/Diagram.png" alt="Diagram Database" id="img-db-diagram">
-    </div>    
+    </div>
     <div class="information">
         <h1>User</h1>
         <table>
             <th>Activity</th>
             <th>Method</th>
-            <th>URL</th>        
+            <th>URL</th>
             <tr>
-                <td>Mendapatkan daftar akun</td>
+                <td>Mendapatkan Daftar User</td>
                 <td>GET</td>
                 <td>/user</td>
             </tr>
             <tr>
-                <td>Mendapatkan daftar akun berdasarkan ID</td>
+                <td>Mendapatkan Daftar User Berdasarkan ID</td>
                 <td>GET</td>
                 <td>/user/:id</td>
             </tr>
             <tr>
-                <td>Menambahkan akun baru</td>
+                <td>Menambahkan User Baru</td>
                 <td>POST</td>
                 <td>/user</td>
-            </tr>        
+            </tr>
+            <tr>
+                <td>Mengupdate Data User Berdasar ID</td>
+                <td>PUT</td>
+                <td>/user/:id</td>
+            </tr>
+            <tr>
+                <td>Menghapus Data User Berdasar ID</td>
+                <td>DELETE</td>
+                <td>/user/:id</td>
+            </tr>
+            <tr>
+                <td>Login User</td>
+                <td>GET</td>
+                <td>/login</td>
+            </tr>
         </table>
     </div>
     <div class="information">
@@ -84,7 +99,7 @@
         <table>
             <th>Activity</th>
             <th>Method</th>
-            <th>URL</th>        
+            <th>URL</th>
             <tr>
                 <td>Mendapatkan daftar calon</td>
                 <td>GET</td>
@@ -94,7 +109,7 @@
                 <td>Mendapatkan daftar calon berdasarkan ID</td>
                 <td>GET</td>
                 <td>/calon/:id</td>
-            </tr>        
+            </tr>
             <tr>
                 <td>Menambahkan calon baru</td>
                 <td>POST</td>
@@ -117,7 +132,7 @@
         <table>
             <th>Activity</th>
             <th>Method</th>
-            <th>URL</th>        
+            <th>URL</th>
             <tr>
                 <td>Mendapatkan daftar semua vote</td>
                 <td>GET</td>
@@ -144,7 +159,7 @@
                 <td>/:idcalon/sumvote</td>
             </tr>
         </table>
-    </div>    
+    </div>
 </body>
 
 </html>
