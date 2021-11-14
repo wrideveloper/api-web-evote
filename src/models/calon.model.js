@@ -6,7 +6,9 @@ var Calon = function(calon){
     this.kelas = calon.kelas;
     this.visi = calon.visi;
     this.misi = calon.misi;
-    this.foto = calon.foto; 
+    this.foto = calon.foto;
+    this.miniclass = calon.miniclass;
+    this.link = calon.link; 
 }
 
 //get all calon
@@ -48,7 +50,8 @@ Calon.createCalon = (calonReqData, result)=>{
 Calon.updateCalon = (id, calonReqData, result)=>{
     sql.query("UPDATE calon SET nama=?,kelas=?,visi=?,misi=?,foto=? WHERE id_calon=?",
     [calonReqData.nama, calonReqData.kelas, calonReqData.visi, 
-    calonReqData.misi, calonReqData.foto, id],
+    calonReqData.misi, calonReqData.foto, calonReqData.miniclass,
+    calonReqData.link, id],
     (err, res)=>{
         if(err){
             console.log('Eror ketika update calon');

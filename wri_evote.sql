@@ -33,7 +33,9 @@ CREATE TABLE `calon` (
   `kelas` varchar(10) NOT NULL,
   `visi` text NOT NULL,
   `misi` text NOT NULL,
-  `foto` varchar(150) NOT NULL
+  `foto` varchar(150) NOT NULL,
+  `miniclass` varchar(50) NOT NULL,
+  `link` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
