@@ -19,9 +19,18 @@ exports.getVoteByIDUser = (req, res) => {
     })
 }
 
-// get num of vote of user by ID
 exports.getTotalVote = (req, res) => {
     VoteModel.getTotalVote((err, vote) => {
+        if (err)
+            res.send(err);
+        else
+            res.send(vote);        
+    })
+}
+
+// get num of vote of user by ID
+exports.getVoteScore = (req, res) => {
+    VoteModel.getVoteScore((err, vote) => {
         if (err)
             res.send(err);
         else

@@ -2,14 +2,13 @@ const sql = require('../../config/db.config');
 
 const Vote = function(vote) {
     this.id_user = vote.id_user;
-    this.id_calon = vote.id_calon;
-    this.harapan = vote.harapan;
+    this.id_calon = vote.id_calon;    
     this.waktu_vote = new Date();
 }
 
 // get all vote
 Vote.getAllVote = (result) => {
-    sql.query('SELECT vote.id_vote, user.nim as nim_pemilih, user.nama as nama_pemilih, calon.nama as memilih_calon, vote.harapan, vote.waktu_vote FROM vote INNER JOIN user ON vote.id_user = user.id_user INNER JOIN calon ON vote.id_calon = calon.id_calon', (err, res) => {
+    sql.query('SELECT vote.id_vote, user.nim as nim_pemilih, user.nama as nama_pemilih, calon.nama as memilih_calon, vote.waktu_vote FROM vote INNER JOIN user ON vote.id_user = user.id_user INNER JOIN calon ON vote.id_calon = calon.id_calon', (err, res) => {
         if (err) {
             console.log('Error while fetching vote', err);
             result(null, err);
@@ -32,17 +31,30 @@ Vote.getVoteByIDUser = (id, result) => {
     })
 }
 
-// get num of vote of user by ID
 Vote.getTotalVote = (result) => {
-    sql.query('SELECT COUNT(id_vote) as total_vote FROM vote', (err, res) => {
+    sql.query('SELECT COUNT(id_vote) as total_vote FROM vote;', (err, res) => {
         if (err) {
-            console.log('Error while fetching total_vote', err);
+            console.log('Error while fetching vote', err);
             result(null, err);
-        } else {            
+        } else {
+            console.log('vote fetched successfully');
             result(null, res);
         }
     })
 }
+
+Vote.getVoteScore = (result) => {
+    sql.query('SELECT c.id_calon, c.nama, COUNT(v.id_vote) as total_vote FROM vote v INNER JOIN calon c on c.id_calon = v.id_calon GROUP BY c.id_calon;', (err, res) => {
+        if (err) {
+            console.log('Error while fetching vote', err);
+            result(null, err);
+        } else {
+            console.log('vote fetched successfully');
+            result(null, res);
+        }
+    })
+}
+
 
 // create vote
 Vote.createVote = (ReqDataVote, result) => {

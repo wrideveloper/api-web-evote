@@ -28,10 +28,12 @@ app.use(express.json());
 const voteRouter = require('./routes/vote.route');
 const userRouter = require('./routes/user.route');
 const calonRouter = require('./routes/calon.route');
+const harapanRouter = require('./routes/harapan.route');
 
 app.use('/vote', voteRouter);
 app.use('/user', userRouter);
 app.use('/calon', calonRouter);
+app.use('/harapan', harapanRouter);
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../index.html'));
